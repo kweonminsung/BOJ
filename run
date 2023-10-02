@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# 인수로 전달된 파일 위치를 확인합니다.
+if [ $# -ne 1 ]; then
+    echo "사용법: $0 <C++ 파일 경로>"
+    exit 1
+fi
+
+cpp_file="$1/main.cpp"
+output_file="${cpp_file%.*}"  # 확장자를 제외한 파일 이름을 가져옵니다.
+
+# C++ 파일을 컴파일합니다.
+if g++ "$cpp_file" -o "$output_file"; then
+    echo "==== 컴파일 성공 ===="
+
+    # 컴파일된 프로그램을 실행합니다.
+    "./$output_file"
+
+    # 실행이 완료되면 컴파일된 실행 파일을 삭제합니다.
+    rm -f "$output_file"
+else
+    echo "==== 컴파일 실패 ===="
+fi
