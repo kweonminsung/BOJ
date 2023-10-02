@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "사용법: $0 <BOJ 문제 번호>"
+    exit 1
+fi
+
+boj_number="$1"
+
+if [ -d "$boj_number" ]; then
+    echo "$boj_number번 문제가 이미 존재합니다."
+    exit 0
+fi
+
+mkdir -p "$boj_number"
+
+cp -r $(dirname $0)/template/* "$boj_number/"
+
+# root 권한으로 생성된 경우 권한 변경
+if [ $(id -u) -eq 0 ]; then
+    chmod 777 -R "$boj_number/"
+fi
+
+echo "==== $boj_number번 추가됨 ===="
