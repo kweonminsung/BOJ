@@ -8,12 +8,14 @@ fi
 cpp_file="$1/main.cpp"
 output_file="${cpp_file%.*}"
 
+input_data=$(cat run_s.txt)
+
 # C++ 파일을 컴파일합니다.
 if g++ "$cpp_file" -o "$output_file"; then
     echo "==== 컴파일 성공 ===="
 
     # 컴파일된 프로그램을 실행합니다.
-    "./$output_file"
+    "./$output_file" <<< "$input_data"
 
     # 실행이 완료되면 컴파일된 실행 파일을 삭제합니다.
     rm -f "$output_file"
