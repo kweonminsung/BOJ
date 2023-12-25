@@ -3,33 +3,35 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int N, K;
-    cin >> N >> K;
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    list<int> L;
-    for(int i = 1; i <= N; i++) L.push_back(i);
+  int N, K;
+  cin >> N >> K;
 
-    auto cursor = L.begin();
-    advance(cursor, K - 1);
+  list<int> L;
+  for (int i = 1; i <= N; i++)
+    L.push_back(i);
 
-    cout <<  "<" << *cursor;
-    cursor = L.erase(cursor);
-    cursor--;
+  auto cursor = L.begin();
+  advance(cursor, K - 1);
 
-    while(!L.empty()) {
-        int temp = K;
-        while(temp--) {
-            cursor++;
-            if(cursor == L.end()) cursor = L.begin();
-        }
+  cout << "<" << *cursor;
+  cursor = L.erase(cursor);
+  cursor--;
 
-        cout <<  ", " << *cursor;
-        cursor = L.erase(cursor);
-        cursor--;
+  while (!L.empty()) {
+    int temp = K;
+    while (temp--) {
+      cursor++;
+      if (cursor == L.end())
+        cursor = L.begin();
     }
 
-    cout << ">";
+    cout << ", " << *cursor;
+    cursor = L.erase(cursor);
+    cursor--;
+  }
+
+  cout << ">";
 }

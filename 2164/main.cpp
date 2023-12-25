@@ -3,22 +3,24 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int N;
-    cin >> N;
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    queue<int> Q;
-    for(int i = 1; i <= N; i++) Q.push(i);
+  int N;
+  cin >> N;
 
-    int index = 0;
+  queue<int> Q;
+  for (int i = 1; i <= N; i++)
+    Q.push(i);
 
-    while(Q.size() > 1) {
-        if(index % 2 == 1) Q.push(Q.front());
-        Q.pop();
-        index++;
-    }
+  int index = 0;
 
-    cout << Q.front();
+  while (Q.size() > 1) {
+    if (index % 2 == 1)
+      Q.push(Q.front());
+    Q.pop();
+    index++;
+  }
+
+  cout << Q.front();
 }

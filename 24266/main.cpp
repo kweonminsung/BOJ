@@ -3,9 +3,10 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    long n; cin >> n;
-    cout << n * n * n << "\n3";
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  long n;
+  cin >> n;
+  cout << n * n * n << "\n3";
 }

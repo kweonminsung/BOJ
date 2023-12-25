@@ -3,25 +3,27 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int n, m;
-    int arr[100] = {0, };
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    cin >> n >> m;
+  int n, m;
+  int arr[100] = {
+      0,
+  };
 
-    for(int i = 0; i < n; i++) {
-        arr[i] = i + 1;
-    }
+  cin >> n >> m;
 
-    while(m--) {
-        int i, j;
-        cin >> i >> j;
-        swap(arr[i - 1], arr[j - 1]);
-    }
+  for (int i = 0; i < n; i++) {
+    arr[i] = i + 1;
+  }
 
-    for(int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
+  while (m--) {
+    int i, j;
+    cin >> i >> j;
+    swap(arr[i - 1], arr[j - 1]);
+  }
+
+  for (int i = 0; i < n; i++) {
+    cout << arr[i] << " ";
+  }
 }

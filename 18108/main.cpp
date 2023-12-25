@@ -3,11 +3,11 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int y;
-    cin >> y;
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    cout << y - 543;
+  int y;
+  cin >> y;
+
+  cout << y - 543;
 }

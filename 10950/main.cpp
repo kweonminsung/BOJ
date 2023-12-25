@@ -3,15 +3,15 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int N; cin >> N;
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    while (N--) {
-        int a, b;
-        cin >> a >> b;
-        cout << a + b << "\n";
-    }
-    
+  int N;
+  cin >> N;
+
+  while (N--) {
+    int a, b;
+    cin >> a >> b;
+    cout << a + b << "\n";
+  }
 }

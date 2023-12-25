@@ -3,14 +3,16 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int a, b, c; cin >> a >> b >> c;
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    int minNum = min(a, min(b, c));
-    int maxNum = max(a, max(b, c));
-    int midNum = a + b + c - minNum - maxNum;
+  int a, b, c;
+  cin >> a >> b >> c;
 
-    cout << ((minNum + midNum > maxNum) ? (a + b + c) : (2 * (minNum + midNum) - 1));
+  int minNum = min(a, min(b, c));
+  int maxNum = max(a, max(b, c));
+  int midNum = a + b + c - minNum - maxNum;
+
+  cout << ((minNum + midNum > maxNum) ? (a + b + c)
+                                      : (2 * (minNum + midNum) - 1));
 }

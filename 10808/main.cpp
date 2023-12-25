@@ -3,17 +3,17 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    string s;
-    cin >> s;
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    int arr[26] = {};
+  string s;
+  cin >> s;
 
-    for(auto c : s)
-        arr[c - 'a']++;
+  int arr[26] = {};
 
-    for(char i = 0; i < 26; i++)
-        cout << arr[i] << " ";
+  for (auto c : s)
+    arr[c - 'a']++;
+
+  for (char i = 0; i < 26; i++)
+    cout << arr[i] << " ";
 }

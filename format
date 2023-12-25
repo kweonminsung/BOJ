@@ -1,0 +1,27 @@
+#!/bin/bash
+
+file_extension="main.cpp"
+
+# clang-format 설치 여부 확인
+if ! command -v clang-format &> /dev/null; then
+  echo "=== ERROR: clang-format is not installed ==="
+  exit 1
+fi
+
+files=($(find . -name "$file_extension"))
+
+file_count=${#files[@]}
+
+if [ $file_count -gt 0 ]; then
+  echo "=== Formatting $file_count $file_extension files ==="
+
+  for file in "${files[@]}"; do
+    echo "Formatting: $file"
+    clang-format -i "$file"
+  done
+
+  echo "=== Formatting Complete ==="
+else
+  echo "=== No file to format ==="
+fi
+  
