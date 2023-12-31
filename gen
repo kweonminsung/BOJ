@@ -7,6 +7,14 @@ fi
 
 boj_number="$1"
 
+# test 폴더의 경우 코드 초기화
+if [ "$boj_number" = "test" ]; then
+    cp -r $(dirname $0)/template/* "test/"
+    chmod 777 -R "test/"
+    echo "==== test 폴더 초기화 ===="
+    exit 0
+fi
+
 if [ -d "$boj_number" ]; then
     echo "$boj_number번 문제가 이미 존재합니다."
     exit 0

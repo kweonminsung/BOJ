@@ -16,3 +16,8 @@ $ ./run <백준 문제 번호>
 ```bash
 $ ./run -f <백준 문제 번호>
 ```
+
+#### 소스 코드 포멧팅(clang-format 필요)
+```bash
+$ ./format
+```
