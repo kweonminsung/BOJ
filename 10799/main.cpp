@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
@@ -14,19 +13,13 @@ int main()
 
   stack<char> S;
 
-  for (int i = 0; i < s.size(); i++)
-  {
-    if (s[i] == '(')
-    {
+  for (int i = 0; i < s.size(); i++) {
+    if (s[i] == '(') {
       cnt++;
       S.push(s[i]);
-    }
-    else
-    {
-      if (S.top() == '(')
-      {
-        if (s[i - 1] == '(')
-        {
+    } else {
+      if (S.top() == '(') {
+        if (s[i - 1] == '(') {
           S.pop();
           cnt += S.size() - 1;
           continue;

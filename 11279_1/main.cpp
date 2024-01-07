@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+using ll = long long;
 
 int main() {
   ios::sync_with_stdio(0);
@@ -8,23 +9,23 @@ int main() {
 
   int n;
   cin >> n;
-  vector<int> V;
+  priority_queue<ll, vector<ll>> PQ;
 
   for (int i = 0; i < n; i++) {
-    int input;
+    ll input;
     cin >> input;
 
     if (input == 0) {
-      if (V.empty()) {
+      if (PQ.empty()) {
         cout << "0\n";
         continue;
       }
-      auto iter = min_element(V.begin(), V.end());
-      cout << *iter << "\n";
-      V.erase(iter);
+
+      cout << PQ.top() << "\n";
+      PQ.pop();
       continue;
     }
 
-    V.push_back(input);
+    PQ.push(input);
   }
 }

@@ -2,8 +2,11 @@
 
 using namespace std;
 
-int main()
-{
+<<<<<<< HEAD
+int main() {
+=======
+int main() {
+>>>>>>> merge
   ios::sync_with_stdio(0);
   cin.tie(0);
 
@@ -11,15 +14,12 @@ int main()
   cin >> n;
   vector<int> V;
 
-  for (int i = 0; i < n; i++)
-  {
+  for (int i = 0; i < n; i++) {
     int input;
     cin >> input;
 
-    if (input == 0)
-    {
-      if (V.empty())
-      {
+    if (input == 0) {
+      if (V.empty()) {
         cout << "0\n";
         continue;
       }
