@@ -4,10 +4,27 @@ using namespace std;
 
 int r, c, maxCnt = 0;
 string board[20];
-int dist[20][20];
+bool vis[26];
 
 int dx[4] = {0, 0, 1, -1};
 int dy[4] = {1, -1, 0, 0};
+
+void dfs(pair<int, int> cur, int k) {
+  maxCnt = max(maxCnt, k);
+  for (int dir = 0; dir < 4; dir++) {
+    int nx = cur.first + dx[dir];
+    int ny = cur.second + dy[dir];
+
+    if (nx < 0 || nx >= r || ny < 0 || ny >= c)
+      continue;
+    if (vis[board[nx][ny] - 'A'])
+      continue;
+
+    vis[board[nx][ny] - 'A'] = true;
+    dfs({nx, ny}, k + 1);
+    vis[board[nx][ny] - 'A'] = false;
+  }
+}
 
 int main() {
   ios::sync_with_stdio(0);
@@ -17,38 +34,8 @@ int main() {
   for (int i = 0; i < r; i++)
     cin >> board[i];
 
-  for (int i = 0; i < r; i++) {
-    for (int j = 0; j < c; j++) {
-      for (int k = 0; k < r; k++)
-        fill(dist[k], dist[k] + c, -1);
-
-      stack<pair<int, int>> S;
-      set<char> Set;
-      S.push({i, j});
-      dist[i][j] = 0;
-      Set.insert(board[i][j]);
-
-      while (!S.empty()) {
-        auto cur = S.top();
-        S.pop();
-
-        for (int dir = 0; dir < 4; dir++) {
-          int nx = cur.first + dx[dir];
-          int ny = cur.second + dy[dir];
-
-          if (nx < 0 || nx >= r || ny < 0 || ny >= c)
-            continue;
-          if (dist[nx][ny] != -1)
-            continue;
-
-          dist[nx][ny] = dist[cur.first][cur.second] + 1;
-          S.push({nx, ny});
-          Set.insert(board[nx][ny]);
-          maxCnt = max(maxCnt, dist[nx][ny]);
-        }
-      }
-    }
-  }
+  vis[board[0][0] - 'A'] = true;
+  dfs({0, 0}, 1);
 
   cout << maxCnt;
 }

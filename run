@@ -53,6 +53,8 @@ elif [ $# = 2 ]; then
 
             "./$output_file" <<< "$input_data"
 
+            echo -e "\n====================="
+
             # 실행이 완료되면 컴파일된 실행 파일을 삭제
             rm -f "$output_file"
         else
