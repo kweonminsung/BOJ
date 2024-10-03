@@ -174,6 +174,8 @@ $ ./format
 <div markdown="1">
 
 - [BOJ 2042: 구간 합 구하기](./2042/main.cpp)
+- [BOJ 2357: 최솟값과 최댓값](./2357/main.cpp)
+- [BOJ 11505: 구간 곱 구하기](./11505/main.cpp)
 
 </div>
 </details>
