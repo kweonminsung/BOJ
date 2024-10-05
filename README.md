@@ -24,6 +24,15 @@ $ ./format
 
 ### 알고리즘별 분류
 <details>
+<summary>입출력과 사칙연산</summary>
+<div markdown="1">
+
+- 준비 중
+
+</div>
+</details>
+
+<details>
 <summary>수학</summary>
 <div markdown="1">
 
@@ -54,7 +63,7 @@ $ ./format
 <summary>스택, 큐, 덱</summary>
 <div markdown="1">
 
-- 준비 중
+- [BOJ 1158: 요세푸스 문제](./1158/main.cpp)
 
 </div>
 </details>
@@ -173,9 +182,13 @@ $ ./format
 <summary>세그먼트 트리</summary>
 <div markdown="1">
 
+- [BOJ 1517: 버블 소트](./1517/main.cpp)
 - [BOJ 2042: 구간 합 구하기](./2042/main.cpp)
 - [BOJ 2357: 최솟값과 최댓값](./2357/main.cpp)
+- [BOJ 9345: 디지털 비디오 디스크(DVDs)](./9345/main.cpp)
 - [BOJ 11505: 구간 곱 구하기](./11505/main.cpp)
+- [BOJ 12899: 데이터 구조](./12899/main.cpp)
+- [BOJ 16975: 수열과 쿼리 21](./16975/main.cpp)
 
 </div>
 </details>
