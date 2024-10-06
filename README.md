@@ -182,6 +182,7 @@ $ ./format
 <summary>세그먼트 트리</summary>
 <div markdown="1">
 
+- [BOJ 1168: 요세푸스 문제 2](./1168/main.cpp)
 - [BOJ 1517: 버블 소트](./1517/main.cpp)
 - [BOJ 2042: 구간 합 구하기](./2042/main.cpp)
 - [BOJ 2357: 최솟값과 최댓값](./2357/main.cpp)
