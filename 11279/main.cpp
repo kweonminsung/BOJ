@@ -2,11 +2,7 @@
 
 using namespace std;
 
-<<<<<<< HEAD
 int main() {
-=======
-int main() {
->>>>>>> merge
   ios::sync_with_stdio(0);
   cin.tie(0);
 
