@@ -27,7 +27,7 @@ $ ./format
 <summary>입출력과 사칙연산</summary>
 <div markdown="1">
 
-- 준비 중
+- [BOJ 31403: A + B - C](./31403/main.cpp)
 
 </div>
 </details>
@@ -187,6 +187,7 @@ $ ./format
 - [BOJ 1395: 스위치](./1395/main.cpp)
 - [BOJ 1517: 버블 소트](./1517/main.cpp)
 - [BOJ 2042: 구간 합 구하기](./2042/main.cpp)
+- [BOJ 2243: 사탕상자](./2243/main.cpp)
 - [BOJ 2268: 수들의 합 7](./2268/main.cpp)
 - [BOJ 2357: 최솟값과 최댓값](./2357/main.cpp)
 - [BOJ 9345: 디지털 비디오 디스크(DVDs)](./9345/main.cpp)
@@ -194,13 +195,16 @@ $ ./format
 - [BOJ 10999: 구간 합 구하기 2](./10999/main.cpp)
 - [BOJ 11505: 구간 곱 구하기](./11505/main.cpp)
 - [BOJ 12837: 가계부 (Hard)](./12837/main.cpp)
+- [BOJ 12844: XOR](./12844/main.cpp)
 - [BOJ 12899: 데이터 구조](./12899/main.cpp)
 - [BOJ 13537: 수열과 쿼리 1](./13537/main.cpp)
 - [BOJ 13544: 수열과 쿼리 3](./13544/main.cpp)
+- [BOJ 14245: XOR](./14245/main.cpp)
 - [BOJ 14427: 수열과 쿼리 15](./14427/main.cpp)
 - [BOJ 14428: 수열과 쿼리 16](./14428/main.cpp)
 - [BOJ 14438: 수열과 쿼리 17](./14438/main.cpp)
 - [BOJ 16975: 수열과 쿼리 21](./16975/main.cpp)
+- [BOJ 16978: 수열과 쿼리 22](./16978/main.cpp)
 - [BOJ 18436: 수열과 쿼리 37](./18436/main.cpp)
 
 </div>
