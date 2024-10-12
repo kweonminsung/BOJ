@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 #include <climits>
-#define NUM 100001
+#define MAX 100001
 
 using namespace std;
 using ll = long long;
 
 int N, M;
 ll a, b;
-ll arr[NUM], maxTree[4 * NUM], minTree[4 * NUM];
+ll arr[MAX], maxTree[4 * MAX], minTree[4 * MAX];
 
 ll maxInit(int start, int end, int n) {
   if (start == end)

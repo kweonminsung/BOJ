@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define NUM 1000001
+#define MAX 1000001
 #define MOD 1000000007
 
 using namespace std;
@@ -7,7 +7,7 @@ using ll = long long;
 
 int N, M, K;
 ll a, b, c;
-ll arr[NUM], tree[4 * NUM];
+ll arr[MAX], tree[4 * MAX];
 
 ll init(int start, int end, int n) {
   if (start == end) {
