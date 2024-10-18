@@ -27,6 +27,7 @@ $ ./format
 <summary>입출력과 사칙연산</summary>
 <div markdown="1">
 
+- [BOJ 30802: 웰컴 키트](./30802/main.cpp)
 - [BOJ 31403: A + B - C](./31403/main.cpp)
 
 </div>
@@ -36,7 +37,7 @@ $ ./format
 <summary>수학</summary>
 <div markdown="1">
 
-- 준비 중
+- [BOJ 28702: FizzBuzz](./28702/main.cpp)
 
 </div>
 </details>
@@ -190,6 +191,7 @@ $ ./format
 - [BOJ 2243: 사탕상자](./2243/main.cpp)
 - [BOJ 2268: 수들의 합 7](./2268/main.cpp)
 - [BOJ 2357: 최솟값과 최댓값](./2357/main.cpp)
+- [BOJ 3653: 영화 수집](./3653/main.cpp)
 - [BOJ 9345: 디지털 비디오 디스크(DVDs)](./9345/main.cpp)
 - [BOJ 10868: 최솟값](./10868/main.cpp)
 - [BOJ 10999: 구간 합 구하기 2](./10999/main.cpp)
