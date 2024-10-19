@@ -147,7 +147,7 @@ $ ./format
 <summary>정렬</summary>
 <div markdown="1">
 
-- 준비 중
+- [BOJ 18870: 좌표 압축](./18870/main.cpp) / [#1](./18870_1/main.cpp)
 
 </div>
 </details>
@@ -185,12 +185,16 @@ $ ./format
 
 - [BOJ 1168: 요세푸스 문제 2](./1168/main.cpp)
 - [BOJ 1275: 커피숍2](./1275/main.cpp)
+- [BOJ 1306: 달려라 홍준](./1306/main.cpp)
+- [BOJ 1321: 군인](./1321/main.cpp)
 - [BOJ 1395: 스위치](./1395/main.cpp)
 - [BOJ 1517: 버블 소트](./1517/main.cpp)
+- [BOJ 1849: 순열](./1849/main.cpp)
 - [BOJ 2042: 구간 합 구하기](./2042/main.cpp)
 - [BOJ 2243: 사탕상자](./2243/main.cpp)
 - [BOJ 2268: 수들의 합 7](./2268/main.cpp)
 - [BOJ 2357: 최솟값과 최댓값](./2357/main.cpp)
+- [BOJ 2517: 달리기](./2517/main.cpp)
 - [BOJ 3653: 영화 수집](./3653/main.cpp)
 - [BOJ 9345: 디지털 비디오 디스크(DVDs)](./9345/main.cpp)
 - [BOJ 10868: 최솟값](./10868/main.cpp)
