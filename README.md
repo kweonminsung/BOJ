@@ -52,6 +52,15 @@ $ ./format
 </details>
 
 <details>
+<summary>다이나믹 프로그래밍</summary>
+<div markdown="1">
+
+- [BOJ 2579: 계단 오르기](./2579/main.cpp)
+
+</div>
+</details>
+
+<details>
 <summary>브루트 포스</summary>
 <div markdown="1">
 
