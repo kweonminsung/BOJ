@@ -37,6 +37,7 @@ $ ./format
 <summary>수학</summary>
 <div markdown="1">
 
+- [BOJ 1924: 2007년](./1924/main.cpp)
 - [BOJ 28702: FizzBuzz](./28702/main.cpp)
 
 </div>
@@ -55,8 +56,12 @@ $ ./format
 <summary>다이나믹 프로그래밍</summary>
 <div markdown="1">
 
+- [BOJ 1309: 동물원](./1309/main.cpp)
 - [BOJ 2156: 포도주 시식](./2156/main.cpp)
+- [BOJ 2293: 동전 1](./2293/main.cpp)
 - [BOJ 2579: 계단 오르기](./2579/main.cpp)
+- [BOJ 11052: 카드 구매하기](./11052/main.cpp)
+- [BOJ 11053: 가장 긴 증가하는 부분 수열](./11053/main.cpp)
 
 </div>
 </details>
@@ -64,7 +69,7 @@ $ ./format
 <details>
 <summary>브루트 포스</summary>
 <div markdown="1">
-
+ 
 - 준비 중
 
 </div>
