@@ -1,11 +1,52 @@
 #!/bin/bash
 
-if [ $# -ne 1 ]; then
-    echo "사용법: $0 <BOJ 문제 번호>"
-    exit 1
-fi
+display_help() {
+    manual="
+        이 스크립트는 Backjoon Online Judge 문제 풀이를 위한 디렉터리와 기본 파일을 생성합니다.
+        
+        \033[1m사용법:\033[0m
+        $0 [옵션] <BOJ 문제 번호>
+        예: $0 12345
+            $0 -o 12345
 
-boj_number="$1"
+        \033[1m옵션:\033[0m
+        -h, --help     : 이 도움말 메시지 표시
+        -o, --open     : 생성 후 VS Code에서 main.cpp 파일 열기 (이미 존재할 경우에도 열기)
+
+        'test'를 문제 번호로 사용하면 test 디렉터리를 초기화합니다.
+    "
+    echo -e "$manual"
+    exit 0
+}
+
+open_vscode=false
+boj_number=""
+
+while (( "$#" )); do
+  case "$1" in
+    -h|--help)
+      display_help
+      ;;
+    -o|--open)
+      open_vscode=true
+      shift
+      ;;
+    *)
+      if [ -z "$boj_number" ]; then
+        boj_number=$1
+      else
+        echo "에러: 너무 많은 인자"
+        display_help
+      fi
+      shift
+      ;;
+  esac
+done
+
+if [ -z "$boj_number" ]; then
+    echo "에러: BOJ 문제 번호를 입력해주세요."
+    display_help
+fi
 
 # test 폴더의 경우 코드 초기화
 if [ "$boj_number" = "test" ]; then
@@ -17,6 +58,9 @@ fi
 
 if [ -d "$boj_number" ]; then
     echo "$boj_number번 문제가 이미 존재합니다."
+    if [ "$open_vscode" = true ]; then
+        code -r "$boj_number/main.cpp"
+    fi
     exit 0
 fi
 
@@ -30,3 +74,7 @@ if [ $(id -u) -eq 0 ]; then
 fi
 
 echo "==== $boj_number번 추가됨 ===="
+
+if [ "$open_vscode" = true ]; then
+    code -r "$boj_number/main.cpp"
+fi

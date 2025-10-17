@@ -164,7 +164,8 @@ $ ./format
 <summary>투포인터</summary>
 <div markdown="1">
 
-- 준비 중
+- - [BOJ 1806: 부분합](./1806/main.cpp)
+- - [BOJ 3273: 두 수의 합](./3273/main.cpp)
 
 </div>
 </details>

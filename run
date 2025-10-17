@@ -1,71 +1,80 @@
 #!/bin/bash
 
-if [ $# = 1 ]; then
-    if [ "$1" = "-h" ]; then
-        manual="
-            이 스크립트는 Backjoon Online Judge에서 C++ 소스 코드를 컴파일하고 실행하는 데 도움을 줍니다.
-            
-            \033[1m사용법:\033[0m
-            1. 소스 코드를 컴파일하고 실행하기:
-               $0 <BOJ 문제 번호>
-               예: $0 12345
+display_help() {
+    manual="
+        이 스크립트는 Backjoon Online Judge에서 C++ 소스 코드를 컴파일하고 실행하는 데 도움을 줍니다.
+        
+        \033[1m사용법:\033[0m
+        $0 [옵션] <BOJ 문제 번호>
+        예: $0 12345
+            $0 -f 12345
 
-            2. 입력 파일을 사용하여 소스 코드를 컴파일하고 실행하기:
-               $0 -f <BOJ 문제 번호>
-               예: $0 -f 12345
+        \033[1m옵션:\033[0m
+        -h, --help     : 이 도움말 메시지 표시
+        -f, --file     : 입력 파일 (input.txt)을 사용하여 실행
 
-            3. 이 도움말 메시지 표시:
-               $0 -h
+        본 스크립트는 주어진 BOJ 문제 번호의 C++ 소스 코드를 컴파일하고 실행합니다.
+        실행이 완료되면 컴파일된 실행 파일을 삭제합니다.
+    "
+    echo -e "$manual"
+    exit 0
+}
 
-            \033[1m옵션:\033[0m
-            -h     : 이 도움말 메시지 표시
-            -f     : 입력 파일 (input.txt)을 사용하여 실행
+use_file=false
+boj_number=""
 
-            본 스크립트는 주어진 BOJ 문제 번호와 소스 코드를 컴파일하고 실행합니다.
-            실행이 완료되면 컴파일된 실행 파일을 삭제합니다.
-        "
-        echo -e "$manual"
-        exit 0
-    fi
+while (( "$#" )); do
+  case "$1" in
+    -h|--help)
+      display_help
+      ;;
+    -f|--file)
+      use_file=true
+      shift
+      ;;
+    *)
+      if [ -z "$boj_number" ]; then
+        boj_number=$1
+      else
+        echo "에러: 너무 많은 인자"
+        display_help
+      fi
+      shift
+      ;;
+  esac
+done
 
-    cpp_file="$1/main.cpp"
-    output_file="${cpp_file%.*}"
+if [ -z "$boj_number" ]; then
+    echo "에러: BOJ 문제 번호를 입력해주세요."
+    display_help
+fi
 
-    if g++ "$cpp_file" -o "$output_file"; then
-        echo "==== 컴파일 성공 ===="
+cpp_file="$boj_number/main.cpp"
+output_file="${cpp_file%.*}"
 
-        "./$output_file"
-
-        # 실행이 완료되면 컴파일된 실행 파일을 삭제
-        rm -f "$output_file"
-    else
-        echo "==== 컴파일 실패 ===="
-    fi
-
-elif [ $# = 2 ]; then
-    if [ "$1" = "-f" ]; then
-        cpp_file="$2/main.cpp"
-        output_file="${cpp_file%.*}"
-        input_data=$(cat input.txt)
-
-        if g++ "$cpp_file" -o "$output_file"; then
-            echo "==== 컴파일 성공 ===="
-
-            "./$output_file" <<< "$input_data"
-
-            echo -e "\n====================="
-
-            # 실행이 완료되면 컴파일된 실행 파일을 삭제
-            rm -f "$output_file"
-        else
-            echo "==== 컴파일 실패 ===="
-        fi
-
-    else 
-        echo "사용법: $0 <옵션> <BOJ 문제 번호>"
-        exit 1
-    fi
-else    
-    echo "사용법: $0 <BOJ 문제 번호>"
+if [ ! -f "$cpp_file" ]; then
+    echo "에러: $cpp_file 파일을 찾을 수 없습니다."
     exit 1
+fi
+
+if g++ "$cpp_file" -o "$output_file"; then
+    echo "==== 컴파일 성공 ===="
+
+    if [ "$use_file" = true ]; then
+        if [ ! -f "input.txt" ]; then
+            echo "에러: input.txt 파일을 찾을 수 없습니다."
+            rm -f "$output_file"
+            exit 1
+        fi
+        input_data=$(cat input.txt)
+        "./$output_file" <<< "$input_data"
+        echo -e "\n====================="
+    else
+        "./$output_file"
+    fi
+
+    # 실행이 완료되면 컴파일된 실행 파일을 삭제
+    rm -f "$output_file"
+else
+    echo "==== 컴파일 실패 ===="
 fi
