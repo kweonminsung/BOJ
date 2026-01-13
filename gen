@@ -19,7 +19,7 @@ display_help() {
     exit 0
 }
 
-open_vscode=false
+open_vscode=true
 boj_number=""
 
 while (( "$#" )); do
