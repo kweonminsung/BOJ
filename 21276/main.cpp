@@ -2,79 +2,81 @@
 
 using namespace std;
 
-int N, M;
-unordered_map<string, int> nameNum;
-string numName[1001];
-
-vector<int> adj[1001];
-int deg[1001];
+int n, m;
+vector<string> names;
+unordered_map<string, int> namesM;
+vector<int> edge[1001];
 vector<int> child[1001];
-vector<int> father;
+bool childTaken[1001];
+int indeg[1001];
 
-queue<int> q;
+vector<int> greatFather;
 
-bool cmp(int a, int b) { return numName[a] < numName[b]; }
+bool cmp(int a, int b) { return names[a] < names[b]; }
 
 int main() {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
+    cin >> n;
 
-  cin >> N;
-
-  for (int i = 1; i <= N; i++) {
-    string input;
-    cin >> input;
-    nameNum[input] = i;
-    numName[i] = input;
-  }
-
-  cin >> M;
-  for (int i = 0; i < M; i++) {
-    string from, to;
-    cin >> to >> from;
-    adj[nameNum[from]].push_back(nameNum[to]);
-    deg[nameNum[to]]++;
-  }
-
-  for (int i = 1; i <= N; i++)
-    if (deg[i] == 0) {
-      father.push_back(i);
-      q.push(i);
+    for(int i = 0; i < n; i++) {
+        string ipt;
+        cin >> ipt;
+        
+        names.push_back(ipt);
+        namesM[ipt] = i;
     }
 
-  while (!q.empty()) {
-    int cur = q.front();
-    q.pop();
+    cin >> m;
 
-    for (int nxt : adj[cur]) {
-      deg[nxt]--;
+    for(int i = 0; i < m; i++) {
+        string from, to;
+        cin >> to >> from;
 
-      if (deg[nxt] == 0) {
-        child[cur].push_back(nxt);
-        q.push(nxt);
-      }
+        edge[namesM[from]].push_back(namesM[to]);
+        indeg[namesM[to]]++;
     }
-  }
 
-  sort(father.begin(), father.end(), cmp);
+    queue<int> Q;
 
-  cout << father.size() << "\n";
+    for(int i = 0; i < n; i++) {
+        if(indeg[i] == 0) {
+            Q.push(i);
+            greatFather.push_back(i);
+        }
+    }
 
-  for (int x : father)
-    cout << numName[x] << " ";
-  cout << "\n";
+    while(!Q.empty()) {
+        auto cur = Q.front();
+        Q.pop();
 
-  vector<int> p;
-  for (int i = 1; i <= N; i++)
-    p.push_back(i);
-  sort(p.begin(), p.end(), cmp);
+        for(int nxt: edge[cur]) {
+            indeg[nxt]--;
 
-  for (int x : p) {
-    sort(child[x].begin(), child[x].end(), greater<>());
+            if (indeg[nxt] == 0) {
+                if(!childTaken[nxt]) {
+                    childTaken[nxt] = true;
+                    child[cur].push_back(nxt);
+                }
+                Q.push(nxt);
+            }
+        }
+    }
 
-    cout << numName[x] << " " << child[x].size() << " ";
-    for (int y : child[x])
-      cout << numName[y] << " ";
+    sort(greatFather.begin(), greatFather.end(), cmp);
+    cout << greatFather.size() << "\n";
+    for(int x : greatFather) cout << names[x] << " ";
     cout << "\n";
-  }
+
+
+    vector<int> order(n);
+    iota(order.begin(), order.end(), 0);
+    sort(order.begin(), order.end(), cmp);
+    
+    for (int x : order) {
+        sort(child[x].begin(), child[x].end(), cmp);
+
+        cout << names[x] << " " << child[x].size() << " ";
+        for (int y : child[x])
+        cout << names[y] << " ";
+        cout << "\n";
+    }
 }
